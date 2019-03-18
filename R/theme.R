@@ -40,13 +40,13 @@
 #'ggsave_mpinl_poster_portrait("outputfilename.pdf")
 #'
 #' @export
-theme_mpinl_poster <- function(base_size = 20, base_family = "ArialMT", box = FALSE) {
+theme_mpinl_poster <- function(base_size = 20, base_family = "sans", box = FALSE) {
   if(base_size != 20){
     warning("We set the default base_size to 20 to ensure consistency, hope you know what you're doing!")
   }
 
-  if(base_family != "ArialMT"){
-    warning("We set the default base_family to ArialMT to ensure consistency, hope you know what you're doing!")
+  if(base_family != "sans"){
+    warning("We set the default base_family to sans (Usually arial) to ensure consistency, hope you know what you're doing!")
   }
 
   adapted_theme <- ggplot2::theme_bw(base_size, base_family) +
