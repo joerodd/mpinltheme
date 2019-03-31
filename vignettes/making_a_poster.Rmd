@@ -1,0 +1,104 @@
+---
+title: "Making a poster in the MPI theme"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Put the title of your vignette here}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+This package contains themes and scales consistent with the MPI for Psycholinguistics corporate identity, and also helper functions to produce figures suitable for use in the poster and slide templates.
+
+# Designing a poster
+
+On Maxintra, there are poster templates available in Adobe Illustrator and in Powerpoint. There are separate templates for portrait and landscape posters. We encourage you to use the Illustrator templates if possible. There is example content, which of course you can remove. The templates include (we hope) helpful tips and suggestions.
+
+Take a look at the poster template that you are going to use. We suggest that you first make a sketch (on paper) of the poster design and layout.
+
+# Making a plot to insert into the poster
+
+This is where this package comes in!
+
+You can create your plot in the normal way, and then use the themes and scale functions provided by the package.
+
+Here's an example. Here's what it looks like in base ggplot:
+
+```{r}
+
+mtcars2 <- within(mtcars, {
+  vs <- factor(vs, labels = c("V-shaped", "Straight"))
+  am <- factor(am, labels = c("Automatic", "Manual"))
+  cyl  <- factor(cyl)
+  gear <- factor(gear)
+})
+
+library(ggplot2)
+
+ggplot(mtcars2) +
+  geom_point(aes(x = wt, y = mpg, colour = gear)) +
+  labs(title = "Fuel economy declines as weight increases",
+       subtitle = "(1973-74)",
+       x = "Weight (1000 lbs)",
+       y = "Fuel economy (mpg)",
+       color = "Gears")
+
+```
+
+And here is how it looks with the MPI theme.  This version, `theme_mpi_general()` is intended for general purpose use.
+
+```{r}
+library(mpinltheme)
+
+ggplot(mtcars2) +
+  geom_point(aes(x = wt, y = mpg, colour = gear)) +
+  scale_colour_discrete_mpinl() +
+  labs(title = "Fuel economy declines as weight increases",
+       subtitle = "(1973-74)",
+       x = "Weight (1000 lbs)",
+       y = "Fuel economy (mpg)",
+       color = "Gears")+
+  theme_mpinl_general()
+
+```
+
+Note that you need to add two things: the theme, that is `+ theme_mpinl()`, and a scale to change the colours, `+ scale_colour_discrete_mpinl()`.
+
+## Theme version for posters
+
+There is also a version of the theme that is specifically intended for posters. This looks wierd here, because the fonts are relatively large, but when exported and inserted into a poster, they will magically be the correct size to coordinate with the poster template.
+
+```{r}
+library(mpinltheme)
+
+ggplot(mtcars2) +
+  geom_point(aes(x = wt, y = mpg, colour = gear)) +
+  scale_colour_discrete_mpinl() +
+  labs(title = "Fuel economy declines as weight increases",
+       subtitle = "(1973-74)",
+       x = "Weight (1000 lbs)",
+       y = "Fuel economy (mpg)",
+       color = "Gears")+
+  theme_mpinl_poster()
+
+```
+
+
+# Exporting plots and inserting them into Illustrator or Powerpoint
+
+We have provided some helper functions that make it super easy to export a plot for use in the poster templates.
+
+```{r}
+library(mpinltheme)
+
+p1 <- ggplot(mtcars2) +
+  geom_point(aes(x = wt, y = mpg, colour = gear)) +
+  scale_colour_discrete_mpinl() +
+  labs(title = "Fuel economy declines as weight increases",
+       subtitle = "(1973-74)",
+       x = "Weight (1000 lbs)",
+       y = "Fuel economy (mpg)",
+       color = "Gears")+
+  theme_mpinl_poster()
+
+```
+

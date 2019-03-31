@@ -27,6 +27,7 @@
 #' })
 #'
 #' library(ggplot2)
+#' library(themempinl)
 #'
 #' p1 <- ggplot(mtcars2) +
 #'   geom_point(aes(x = wt, y = mpg, colour = gear)) +
