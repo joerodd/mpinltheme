@@ -23,7 +23,7 @@ You can create your plot in the normal way, and then use the themes and scale fu
 
 Here's an example. Here's what it looks like in base ggplot:
 
-```{r}
+```{r,fig.height=4,fig.width=7}
 
 mtcars2 <- within(mtcars, {
   vs <- factor(vs, labels = c("V-shaped", "Straight"))
@@ -46,7 +46,7 @@ ggplot(mtcars2) +
 
 And here is how it looks with the MPI theme.  This version, `theme_mpi_general()` is intended for general purpose use.
 
-```{r}
+```{r,fig.height=4,fig.width=7}
 library(mpinltheme)
 
 ggplot(mtcars2) +
@@ -67,7 +67,7 @@ Note that you need to add two things: the theme, that is `+ theme_mpinl()`, and 
 
 There is also a version of the theme that is specifically intended for posters. This looks wierd here, because the fonts are relatively large, but when exported and inserted into a poster, they will magically be the correct size to coordinate with the poster template.
 
-```{r}
+```{r,fig.height=4,fig.width=7}
 library(mpinltheme)
 
 ggplot(mtcars2) +
