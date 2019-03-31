@@ -5,7 +5,7 @@
 \alias{ggsave_mpinl_poster_landscape}
 \title{Saving helper functions}
 \usage{
-plot + theme_mpinl_posters_slides()
+plot + theme_mpinl_poster()
 ggsave_mpinl_poster_portrait("posterfigure_1.pdf") # The default height is
 ggsave_mpinl_poster_portrait("posterfigure_2.pdf",height = 200, units = "mm")
 ggsave_mpinl_poster_landscape("outputfilename_landscape.pdf")
@@ -62,6 +62,7 @@ gear <- factor(gear)
 })
 
 library(ggplot2)
+library(mpinltheme)
 
 p1 <- ggplot(mtcars2) +
   geom_point(aes(x = wt, y = mpg, colour = gear)) +
@@ -71,7 +72,7 @@ p1 <- ggplot(mtcars2) +
          y = "Fuel economy (mpg)",
          colour = "Gears")
 
-p1 + scale_colour_discrete_mpinl() + theme_mpinl_posters_slides()
+p1 + scale_colour_discrete_mpinl() + theme_mpinl_poster()
 ggsave_mpinl_poster_portrait("outputfilename.pdf")
 
 

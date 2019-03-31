@@ -2,7 +2,7 @@
 title: "Making a poster in the MPI theme"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Put the title of your vignette here}
+  %\VignetteIndexEntry{Making a poster in the MPI theme}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
@@ -85,13 +85,14 @@ ggplot(mtcars2) +
 
 # Exporting plots and inserting them into Illustrator or Powerpoint
 
-We have provided some helper functions that make it super easy to export a plot for use in the poster templates.
+We have provided some helper functions that make it super easy to export a plot for use in the poster templates. The helper functions save a file with the width set to be the right width for the column of the poster templates, so all you have to define is the height. Because the portrait and landscape poster templates have different column widths, there are separate functions for each. For use in Illustrator, it is best to save pdfs (just specify a filename with .pdf). For Powerpoint, save pngs. 
+
 
 ```{r}
 library(mpinltheme)
 
 p1 <- ggplot(mtcars2) +
-  geom_point(aes(x = wt, y = mpg, colour = gear)) +
+  geom_point(aes(x = wt, y = mpg, colour = gear),size=3) +
   scale_colour_discrete_mpinl() +
   labs(title = "Fuel economy declines as weight increases",
        subtitle = "(1973-74)",
@@ -99,6 +100,10 @@ p1 <- ggplot(mtcars2) +
        y = "Fuel economy (mpg)",
        color = "Gears")+
   theme_mpinl_poster()
+
+ggsave_mpinl_poster_landscape("figure1.pdf",p1,height = 200,units = "mm")
+ggsave_mpinl_poster_portrait("figure1_portrait.pdf",p1,height = 200,units = "mm")
+ggsave_mpinl_poster_portrait("figure1_portrait.png",p1,height = 200,units = "mm")
 
 ```
 
