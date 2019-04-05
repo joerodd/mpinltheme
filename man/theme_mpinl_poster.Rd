@@ -22,6 +22,10 @@ to use the recommended colour scheme. For continuous colour scales, we recommend
 
 It shouldn't be necessary to tweak the further. You might wish to use additional + theme() calls to
 further customise the appearance of your plots, for instance to control the placement of the legend.
+
+#' For more details see the poster making vignette:
+\code{vignette("make-a-poster", package = "mpinltheme
+")}
 }
 \examples{
 mtcars2 <- within(mtcars, {

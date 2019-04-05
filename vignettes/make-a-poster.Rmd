@@ -1,11 +1,20 @@
 ---
 title: "Making a poster in the MPI theme"
+author: "Joe Rodd"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Making a poster in the MPI theme}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
 
 This package contains themes and scales consistent with the MPI for Psycholinguistics corporate identity, and also helper functions to produce figures suitable for use in the poster and slide templates.
 

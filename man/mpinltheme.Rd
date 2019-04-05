@@ -46,5 +46,9 @@ save with the correct dimensions for the poster and slide templates:
 \code{\link{ggsave_mpinl_poster_portrait}}
 
 \code{\link{ggsave_mpinl_poster_landscape}}
+
+For more details see the poster making vignette:
+\code{vignette("make-a-poster", package = "mpinltheme
+")}
 }
 

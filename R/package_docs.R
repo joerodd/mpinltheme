@@ -33,6 +33,10 @@
 #'
 #' \code{\link{ggsave_mpinl_poster_landscape}}
 #'
+#' For more details see the poster making vignette:
+#' \code{vignette("make-a-poster", package = "mpinltheme
+#' ")}
+#'
 #' @docType package
 #' @name mpinltheme
 NULL

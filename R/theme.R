@@ -13,6 +13,10 @@
 #' It shouldn't be necessary to tweak the further. You might wish to use additional + theme() calls to
 #' further customise the appearance of your plots, for instance to control the placement of the legend.
 #'
+#' #' For more details see the poster making vignette:
+#' \code{vignette("make-a-poster", package = "mpinltheme
+#' ")}
+#'
 #' @inheritParams ggplot2::theme_bw
 #'
 #' @usage
@@ -244,13 +248,13 @@ theme_mpinl_slide <- function(base_size = 18, base_family = "ArialMT", box = FAL
 #'p1 + scale_colour_discrete_mpinl() + theme_mpinl_general()
 #'
 #' @export
-theme_mpinl_general <- function(base_size = 10, base_family = "ArialMT", box = FALSE) {
+theme_mpinl_general <- function(base_size = 10, base_family = "sans", box = FALSE) {
   if(base_size != 10){
     warning("We set the default base_size to 10 to ensure consistency, hope you know what you're doing!")
   }
 
-  if(base_family != "ArialMT"){
-    warning("We set the default base_family to ArialMT to ensure consistency, hope you know what you're doing!")
+  if(base_family != "sans"){
+    warning("We set the default base_family to sans (Usually arial) to ensure consistency, hope you know what you're doing!")
   }
 
   adapted_theme <- ggplot2::theme_bw(base_size, base_family) +
